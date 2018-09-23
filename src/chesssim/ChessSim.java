@@ -4,15 +4,13 @@
  * and open the template in the editor.
  */
 package chesssim;
-import java.util.Random;
 
 public class ChessSim {
 
     public static void main(String[] args) {
         Board board = new Board();       
-        Random r = new Random();
-        int x = r.nextInt(8);
-        int y = r.nextInt(8);
+        int x = IntGen.genInt(8);
+        int y = IntGen.genInt(8);
         
         System.out.println("Cavalo iniciado com posições x = "+ x +
                 " e y = " + y);

@@ -16,10 +16,11 @@ public class Horse {
     
     Horse(int x, int y, Board board)
     {
-        x_pos = x;
-        y_pos = y;
+        this.x_pos = x;
+        this.y_pos = y;
         this.board = board;
-        board.setCoord(x, y, 0);
+        this.counter = 1;
+        board.setCoord(x, y, counter);
     }
     
     private void moveFoward(int x, int y)
@@ -32,7 +33,7 @@ public class Horse {
     
     private void moveBackwards(int new_x, int new_y, int old_x, int old_y)
     {
-        board.setCoord(new_x, new_y, -1);
+        board.setCoord(new_x, new_y, 0);
         x_pos = old_x;
         y_pos = old_y;
         counter--;
@@ -42,7 +43,7 @@ public class Horse {
     {
         int i;
         
-        if(counter == 63)
+        if(counter == 64)
         {
             return true;
         }
@@ -57,8 +58,6 @@ public class Horse {
             if(board.isSafe(new_x, new_y))
             {
                 moveFoward(new_x, new_y);
-//                board.printBoard();
-//                System.out.println();
                 if(solve())
                 {
                     return true;
@@ -66,8 +65,6 @@ public class Horse {
                 else
                 {
                     moveBackwards(new_x, new_y, old_x, old_y);
-//                    board.printBoard();
-//                    System.out.println();
                 }
             }
         }

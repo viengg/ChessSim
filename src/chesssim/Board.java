@@ -12,14 +12,6 @@ package chesssim;
 public class Board {
     private final int board[][] = new int[8][8];  
     
-    Board()
-    {
-        int i, j;
-        
-        for(i = 0; i < 8; i++)
-            for(j = 0; j < 8; j++)
-                board[i][j] = -1;
-    }
     public void setCoord(int x, int y, int n)
     {
         board[y][x] = n;
@@ -27,7 +19,7 @@ public class Board {
     
     public boolean isSafe(int x, int y)
     {
-        return (x < 8 && y < 8 && x >=0 && y >=0 && board[y][x] == -1);
+        return (x < 8 && y < 8 && x >=0 && y >=0 && board[y][x] == 0);
     }
        
     public void printBoard()
